@@ -1,8 +1,10 @@
-package com.cgi.chatapp.data;
+package com.cgi.chatapp.entity;
 
+import com.cgi.chatapp.data.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface CarRepository extends JpaRepository<Car, Long> {
+public interface MessageRepository extends JpaRepository<Message, Long> {
+
 }
