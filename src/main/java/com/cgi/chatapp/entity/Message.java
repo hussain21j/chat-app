@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 
 /**
  * Entity class for the Message
+ *
  * @author Tayab Hussain
  */
 @Entity

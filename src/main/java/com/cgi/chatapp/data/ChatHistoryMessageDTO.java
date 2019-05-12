@@ -7,6 +7,7 @@ import lombok.Setter;
 
 /**
  * The DTO class to carry chat history response
+ *
  * @author Tayab Hussain
  */
 @Getter

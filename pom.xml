@@ -10,9 +10,10 @@
 	</parent>
 	<groupId>com.cgi</groupId>
 	<artifactId>chat-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
+	<packaging>jar</packaging>
 	<name>chat-app</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Sample Chat Application build as part of the assignment</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -23,7 +24,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
-		<!-- Following dependency is required for Full Featured STOMP Broker Relay -->
+		<!-- dependency for Full Featured STOMP Broker Relay -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-reactor-netty</artifactId>
@@ -33,7 +34,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -50,7 +50,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

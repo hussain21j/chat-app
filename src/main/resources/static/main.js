@@ -74,7 +74,7 @@ module.exports = "* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml,body {\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>{{title}}</title>\n</head>\n<body>\n    <alert type=\"danger\" *ngIf=\"!isValidationOk\" style=\"text-align: center\">Please fill the name to enter</alert>\n    <!--Login Division-->\n    <div id=\"username-page\" *ngIf=\"isUserNameScreen\">\n        <div class=\"username-page-container\">\n            <h1 class=\"title\">{{applicationName}}</h1>\n            <form id=\"usernameForm\" name=\"usernameForm\">\n                <div class=\"form-group\">\n                    <input [(ngModel)]=\"name\" id=\"name\" placeholder=\"Enter your name to start chat\" name=\"username\" class=\"form-control\"/>\n                  </div>\n                <div class=\"form-group\">\n                    <button type=\"submit\" (click)=\"login($event)\" class=\"accent username-submit\">Start Chatting</button>\n                </div>\n            </form>\n        </div>\n    </div>\n\n    <!--Chat Division-->\n    <div id=\"chat-page\" *ngIf=\"isChatScreen\">\n        <div class=\"chat-container\">\n            <div class=\"chat-header\">\n                <h2>{{applicationName}}</h2>\n            </div>\n            <div class=\"connecting\" *ngIf=\"!isConnected\">\n                Connecting...\n            </div>\n            <ul id=\"messageArea\">\n\n            </ul>\n            <form id=\"messageForm\" name=\"messageForm\" nameForm=\"messageForm\">\n                <div class=\"form-group\">\n                    <div class=\"input-group clearfix\">\n                        <input [(ngModel)]=\"message\" id=\"message\" placeholder=\"Type a message...\" name=\"message\" class=\"form-control\"/>\n                        <button type=\"submit\" (click)=\"sendMessage($event)\" class=\"primary\">Send</button>\n                        <button type=\"button\" (click)=\"publishHistory($event)\" class=\"accent\">Chat History</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n\n\n    <div id=\"chat-history-page\" *ngIf=\"isHistoryScreen\">\n            <div class=\"chat-history-container\">\n                    <div class=\"chat-header\">\n                        <h2>Chat History</h2>\n                    </div>\n                        <ul>\n                            <li *ngFor=\"let chat of chatHistoryList\">\n                                <div id=\"chat-history-box\">\n                                    <div class=\"sender\">\n                                        <span>{{chat.sender}}</span>\n                                    </div>\n                                    <div class=\"content\">\n                                        <span>{{chat.content}}</span>\n                                    </div>\n                                    <div class=\"date\">\n                                        <span>{{chat.timestamp}}</span>\n                                    </div>\n                                </div>\n                            </li>\n                        </ul>\n                    <div id=\"chat-history-control\">\n                            <button type=\"button\" (click)=\"backToChat($event)\" class=\"primary\">Back to Chat</button>\n                    </div>\n                    \n                </div>\n    </div>\n\n\n\n<router-outlet></router-outlet>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <title>{{title}}</title>\n</head>\n\n<body>\n    <alert type=\"danger\" *ngIf=\"!isValidationOk\" style=\"text-align: center\">Please fill the name to enter</alert>\n    <!--Login Division-->\n    <div id=\"username-page\" *ngIf=\"isUserNameScreen\">\n        <div class=\"username-page-container\">\n            <h1 class=\"title\">{{applicationName}}</h1>\n            <form id=\"usernameForm\" name=\"usernameForm\">\n                <div class=\"form-group\">\n                    <input [(ngModel)]=\"name\" id=\"name\" placeholder=\"Enter your name to start chat\" name=\"username\"\n                        class=\"form-control\" />\n                </div>\n                <div class=\"form-group\">\n                    <button type=\"submit\" (click)=\"login($event)\" class=\"accent username-submit\">Start Chatting</button>\n                </div>\n            </form>\n        </div>\n    </div>\n\n    <!--Chat Division-->\n    <div id=\"chat-page\" *ngIf=\"isChatScreen\">\n        <div class=\"chat-container\">\n            <div class=\"chat-header\">\n                <h2>{{applicationName}}</h2>\n            </div>\n            <div class=\"connecting\" *ngIf=\"!isConnected\">\n                Connecting...\n            </div>\n            <ul id=\"messageArea\">\n\n            </ul>\n            <form id=\"messageForm\" name=\"messageForm\" nameForm=\"messageForm\">\n                <div class=\"form-group\">\n                    <div class=\"input-group clearfix\">\n                        <input [(ngModel)]=\"message\" id=\"message\" placeholder=\"Type a message...\" name=\"message\"\n                            class=\"form-control\" />\n                        <button type=\"submit\" (click)=\"sendMessage($event)\" class=\"primary\">Send</button>\n                        <button type=\"button\" (click)=\"publishHistory($event)\" class=\"accent\">Chat History</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n\n\n    <div id=\"chat-history-page\" *ngIf=\"isHistoryScreen\">\n        <div class=\"chat-history-container\">\n            <div class=\"chat-header\">\n                <h2>Chat History</h2>\n            </div>\n            <ul>\n                <li *ngFor=\"let chat of chatHistoryList\">\n                    <div id=\"chat-history-box\">\n                        <div class=\"sender\">\n                            <span>{{chat.sender}}</span>\n                        </div>\n                        <div class=\"content\">\n                            <span>{{chat.content}}</span>\n                        </div>\n                        <div class=\"date\">\n                            <span>{{chat.timestamp}}</span>\n                        </div>\n                    </div>\n                </li>\n            </ul>\n            <div id=\"chat-history-control\">\n                <button type=\"button\" (click)=\"backToChat($event)\" class=\"primary\">Back to Chat</button>\n            </div>\n\n        </div>\n    </div>\n\n\n\n    <router-outlet></router-outlet>\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sockjs_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sockjs-client */ "./node_modules/sockjs-client/lib/entry.js");
 /* harmony import */ var sockjs_client__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sockjs_client__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _services_chatapp_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/chatapp.service */ "./src/app/services/chatapp.service.ts");
+/* harmony import */ var _models_Config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/Config */ "./src/app/models/Config.ts");
+
 
 
 
@@ -111,16 +113,11 @@ var AppComponent = /** @class */ (function () {
         this.isConnected = false;
         this.isHistoryScreen = false;
         this.chatHistoryList = [];
-        this.colors = [
-            '#2196F3', '#32c787', '#00BCD4', '#ff5652',
-            '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
-        ];
-        this.serverUrl = 'http://localhost:8080/ws';
         this.title = 'ng-chat-app';
         this.chatAppService = chatAppService;
     }
     AppComponent.prototype.initializeWebSocketConnection = function () {
-        var ws = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__("http://localhost:8080/ws");
+        var ws = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__(_models_Config__WEBPACK_IMPORTED_MODULE_5__["Config"].serverWebSocketURL);
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](ws);
         var that = this;
         this.stompClient.connect({}, function (frame) {
@@ -132,11 +129,11 @@ var AppComponent = /** @class */ (function () {
         });
     };
     AppComponent.prototype.sendJoinMessage = function () {
-        var chatMessage = {
-            sender: this.name,
-            content: '',
-            type: 'JOIN'
-        };
+        console.log("sending join message");
+        var chatMessage = new _models_Config__WEBPACK_IMPORTED_MODULE_5__["ChatMessage"];
+        chatMessage.sender = this.name;
+        chatMessage.content = '';
+        chatMessage.type = 'JOIN';
         this.isUserNameScreen = false;
         this.isChatScreen = true;
         this.isHistoryScreen = false;
@@ -164,7 +161,6 @@ var AppComponent = /** @class */ (function () {
             message.content = message.sender + ' joined!';
         }
         else if (message.type === 'LEAVE') {
-            messageElement.classList.add('event-message');
             message.content = message.sender + ' left!';
         }
         else {
@@ -173,20 +169,7 @@ var AppComponent = /** @class */ (function () {
             messageElement.style.position = 'relative';
             var avatarElement = window.document.createElement('i');
             //style avtar
-            avatarElement.style.position = 'absolute';
-            avatarElement.style.width = '42px';
-            avatarElement.style.height = '42px';
-            avatarElement.style.overflow = 'hidden';
-            avatarElement.style.left = '10px';
-            avatarElement.style.display = 'inline-block';
-            avatarElement.style.verticalAlign = 'middle';
-            avatarElement.style.fontSize = '18px';
-            avatarElement.style.lineHeight = '42px';
-            avatarElement.style.color = '#fff';
-            avatarElement.style.textAlign = 'center';
-            avatarElement.style.borderRadius = '50%';
-            avatarElement.style.fontStyle = 'normal';
-            avatarElement.style.textTransform = 'uppercase';
+            avatarElement = this.styeElementAvtar(avatarElement);
             var avatarText = window.document.createTextNode(message.sender[0]);
             avatarElement.appendChild(avatarText);
             avatarElement.style.backgroundColor = this.getAvatarColor(message.sender);
@@ -210,8 +193,8 @@ var AppComponent = /** @class */ (function () {
         for (var i = 0; i < messageSender.length; i++) {
             hash = 31 * hash + messageSender.charCodeAt(i);
         }
-        var index = Math.abs(hash % this.colors.length);
-        return this.colors[index];
+        var index = Math.abs(hash % _models_Config__WEBPACK_IMPORTED_MODULE_5__["Config"].colors.length);
+        return _models_Config__WEBPACK_IMPORTED_MODULE_5__["Config"].colors[index];
     };
     /**
      * Send message to socket
@@ -220,15 +203,18 @@ var AppComponent = /** @class */ (function () {
         console.log("sending message :" + this.message);
         var messageContent = this.message.trim();
         if (messageContent && this.stompClient) {
-            var chatMessage = {
-                sender: this.name,
-                content: this.message,
-                type: 'CHAT'
-            };
+            var chatMessage = new _models_Config__WEBPACK_IMPORTED_MODULE_5__["ChatMessage"];
+            chatMessage.sender = this.name;
+            chatMessage.content = this.message;
+            chatMessage.type = 'CHAT';
         }
         this.stompClient.send('/app/chat.sendMessage', {}, JSON.stringify(chatMessage));
+        //clear the message input
         this.message = "";
     };
+    /**
+     * get chat history
+     */
     AppComponent.prototype.publishHistory = function (event) {
         var _this = this;
         console.log("fetching history");
@@ -238,11 +224,13 @@ var AppComponent = /** @class */ (function () {
         this.chatAppService.getChatHistory().subscribe(function (resp) {
             _this.chatHistoryList = []; //clean the list
             _this.chatHistoryList = resp;
-            console.log('resp :' + _this.chatHistoryList[0].sender + "  " + _this.chatHistoryList[0].timestamp + "  " + _this.chatHistoryList[0].content);
         }, function (error) {
             _this.errorMessage = "Error in fetching the history";
         });
     };
+    /**
+     * Login and initialize web socket
+     */
     AppComponent.prototype.login = function (event) {
         console.log("logged in: " + this.name);
         if (this.name.trim().length != 0) {
@@ -253,10 +241,33 @@ var AppComponent = /** @class */ (function () {
             this.isValidationOk = false;
         }
     };
+    /**
+     * function called when back button on the chat history is triggered
+     */
     AppComponent.prototype.backToChat = function () {
         this.isChatScreen = true;
         this.isHistoryScreen = false;
         this.isUserNameScreen = false;
+    };
+    /**
+     * Styling for avtar element
+     */
+    AppComponent.prototype.styeElementAvtar = function (avatarElement) {
+        avatarElement.style.position = 'absolute';
+        avatarElement.style.width = '42px';
+        avatarElement.style.height = '42px';
+        avatarElement.style.overflow = 'hidden';
+        avatarElement.style.left = '10px';
+        avatarElement.style.display = 'inline-block';
+        avatarElement.style.verticalAlign = 'middle';
+        avatarElement.style.fontSize = '18px';
+        avatarElement.style.lineHeight = '42px';
+        avatarElement.style.color = '#fff';
+        avatarElement.style.textAlign = 'center';
+        avatarElement.style.borderRadius = '50%';
+        avatarElement.style.fontStyle = 'normal';
+        avatarElement.style.textTransform = 'uppercase';
+        return avatarElement;
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -264,7 +275,12 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             providers: [_services_chatapp_service__WEBPACK_IMPORTED_MODULE_4__["ChatappService"]],
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        }),
+        })
+        /**
+         * Application component
+         * @author Tayab Hussain
+         */
+        ,
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chatapp_service__WEBPACK_IMPORTED_MODULE_4__["ChatappService"]])
     ], AppComponent);
     return AppComponent;
@@ -326,6 +342,53 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/Config.ts":
+/*!**********************************!*\
+  !*** ./src/app/models/Config.ts ***!
+  \**********************************/
+/*! exports provided: Config, ChatMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatMessage", function() { return ChatMessage; });
+/**
+ * Class contains the common proerties
+ * @author Tayab Hussain
+ */
+var Config = /** @class */ (function () {
+    function Config() {
+    }
+    /**
+     * color codes for avtar
+     */
+    Config.colors = [
+        '#2196F3', '#32c787', '#00BCD4', '#ff5652',
+        '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
+    ];
+    /**
+     * Web socket server URL
+     */
+    Config.serverWebSocketURL = "http://localhost:8080/ws";
+    Config.apiBaseURL = "http://localhost:8080/";
+    Config.endPointChatHistory = "chat/history";
+    return Config;
+}());
+
+/**
+ * Chat message class
+ */
+var ChatMessage = /** @class */ (function () {
+    function ChatMessage() {
+    }
+    return ChatMessage;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/chatapp.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/chatapp.service.ts ***!
@@ -339,18 +402,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _models_Config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/Config */ "./src/app/models/Config.ts");
 
 
 
+
+/**
+ * Angular service to interect with the API
+ * @author Tayab Hussain
+ */
 var ChatappService = /** @class */ (function () {
     function ChatappService(_http) {
         this._http = _http;
-        this.apiBaseURL = 'http://localhost:8080/';
-        this.endPointChatHistory = 'messagehistory';
     }
     ;
     ChatappService.prototype.getChatHistory = function () {
-        return this._http.get(this.apiBaseURL + this.endPointChatHistory);
+        return this._http.get(_models_Config__WEBPACK_IMPORTED_MODULE_3__["Config"].apiBaseURL + _models_Config__WEBPACK_IMPORTED_MODULE_3__["Config"].endPointChatHistory);
     };
     ChatappService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

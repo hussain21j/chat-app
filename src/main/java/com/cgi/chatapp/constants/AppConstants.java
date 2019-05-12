@@ -2,11 +2,12 @@ package com.cgi.chatapp.constants;
 
 /**
  * Repository of constant properties or variables
+ *
  * @author Tayab Hussain
  */
 public class AppConstants {
     /**
-     * Unique status for message
+     * Types of messages
      */
 
     public enum MessageType {

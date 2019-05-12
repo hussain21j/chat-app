@@ -6,6 +6,7 @@ import lombok.Setter;
 
 /**
  * DTO class for receiving the JSON request for the API
+ *
  * @author Tayab Hussain
  */
 @Getter

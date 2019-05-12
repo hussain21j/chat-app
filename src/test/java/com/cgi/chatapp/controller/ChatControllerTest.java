@@ -1,8 +1,10 @@
 package com.cgi.chatapp.controller;
 
 import com.cgi.chatapp.ChatAppApplication;
+import org.json.JSONException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -12,10 +14,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
-
 /**
  * Integration test for the @Link{ChatController}
+ *
  * @author Tayab Hussain
  */
 @RunWith(SpringRunner.class)
@@ -29,15 +30,16 @@ public class ChatControllerTest {
     HttpHeaders headers = new HttpHeaders();
 
     @Test
-    public void testMessageHistory() {
+    public void testMessageHistory() throws JSONException {
+        //Given
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        //When
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/students/Student1/courses/Course1"),
+                createURLWithPort("/chat/history"),
                 HttpMethod.GET, entity, String.class);
-
-        //String expected = "{id:Course1,name:Spring,description:10 Steps}";
-        System.out.println("response :"+response.getBody());
-        //JSONAssert.assertEquals(expected, response.getBody(), false);
+        String expectedResponseString = "[]";
+        //Then
+        JSONAssert.assertEquals(expectedResponseString, response.getBody(), false);
     }
 
     private String createURLWithPort(String uri) {

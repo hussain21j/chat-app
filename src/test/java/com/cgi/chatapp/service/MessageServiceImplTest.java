@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Unit Test class for @Link{MessageServiceImpl}
+ *
  * @author Tayab Hussain
  */
 @RunWith(MockitoJUnitRunner.class)
@@ -35,7 +36,7 @@ public class MessageServiceImplTest {
         //Given
         Mockito.when(messageRepository.findAllByOrderByTimestampAsc()).thenReturn(getMessageObjects());
         //When
-        List<ChatHistoryMessageDTO> listChatHistoryMessageDTO =  messageService.getAllMessages();
+        List<ChatHistoryMessageDTO> listChatHistoryMessageDTO = messageService.getAllMessages();
         //Then
         Assertions.assertThat(listChatHistoryMessageDTO).hasSize(2);
         Assertions.assertThat(listChatHistoryMessageDTO.get(0).getTimestamp()).isInstanceOf(String.class);
@@ -55,15 +56,11 @@ public class MessageServiceImplTest {
 
     @Test
     public void shouldNotSaveNonChatTypeMessage() {
-        //Given
-        Message message = new Message();
-        Mockito.when(messageRepository.save(ArgumentMatchers.any())).thenReturn(message);
         //When
         Boolean saveStatus = messageService.saveMessage("sender", "content", AppConstants.MessageType.JOIN);
         //Then
         Assertions.assertThat(saveStatus).isFalse();
     }
-
 
 
     @Test
@@ -97,9 +94,6 @@ public class MessageServiceImplTest {
 
         return listMessage;
     }
-
-
-
 
 
 }

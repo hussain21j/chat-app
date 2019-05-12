@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Repository class for the Entity Message
+ *
  * @author Tayab Hussain
  */
 @RepositoryRestResource

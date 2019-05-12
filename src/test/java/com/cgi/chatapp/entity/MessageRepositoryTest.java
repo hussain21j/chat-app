@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Test class for the {MessageRepository}
+ *
  * @author Tayab Hussain
  */
 @RunWith(SpringRunner.class)
@@ -46,7 +47,7 @@ public class MessageRepositoryTest {
         messageRepository.save(message2);
         messageRepository.save(message3);
         //when
-        List<Message> listMessage =  messageRepository.findAllByOrderByTimestampAsc();
+        List<Message> listMessage = messageRepository.findAllByOrderByTimestampAsc();
         //Then
         Assertions.assertThat(listMessage).hasSize(3);
         Assertions.assertThat(listMessage.get(0).getSender()).isEqualToIgnoringCase("Tom");

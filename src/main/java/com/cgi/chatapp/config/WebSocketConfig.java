@@ -8,20 +8,22 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 /**
  * Configuration class for Web Socket
+ *
  * @author Tayab Hussain
  */
-//todo: rename params
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
+        //the call should be made with the endpoint as /ws
         registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS();
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/app");
-        registry.enableSimpleBroker("/topic");   // Enables a simple in-memory broker
+        // Enables a simple in-memory broker, to broadcast the message to all the subscribers
+        registry.enableSimpleBroker("/topic");
     }
 }

@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * The controller for the application
+ *
  * @author Tayab Hussain
  */
 @Controller
@@ -30,7 +31,7 @@ public class ChatController {
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        log.info("message sent by "+chatMessage.getSender());
+        log.info("message sent by " + chatMessage.getSender());
         messageService.saveMessage(chatMessage.getSender(), chatMessage.getContent(), chatMessage.getType());
         return chatMessage;
     }
@@ -45,9 +46,9 @@ public class ChatController {
     }
 
     @CrossOrigin
-    @GetMapping("messagehistory")
+    @GetMapping("chat/history")
     public ResponseEntity getAllMessages() {
-        List<ChatHistoryMessageDTO> listMessage =  messageService.getAllMessages();
+        List<ChatHistoryMessageDTO> listMessage = messageService.getAllMessages();
         return new ResponseEntity(listMessage, HttpStatus.OK);
     }
 }
