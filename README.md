@@ -1,5 +1,5 @@
 # Chat-app
-This application is the beck end art of the Chat applicaiton assignment.
+This application is the beck end part of the Chat application assignment.
 
 # Information about the overall solution
 Two separate applications built
