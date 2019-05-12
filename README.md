@@ -20,3 +20,9 @@ Two separate applications built
 - once you see the success full message of spring boot, the application will start on port 8080
 - open your browser , fill the address bar with url `http://localhost:8080/` and hit enter
 - the application is available :)
+
+# How to build the artifact / jar file
+- Clone the git repository
+- Go inside the project directory , root path
+- build the artifact using `mvn clean install`
+- thar jar would be built in target directory with name `chat-app-1.0.jar`
